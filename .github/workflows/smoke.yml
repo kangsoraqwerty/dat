@@ -1,10 +1,8 @@
 name: Smoke
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   smoke:
@@ -14,4 +12,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Confirm GitHub Actions runner
-        run: echo "GitHub Actions smoke test passed"
+        run: echo "Scheduled GitHub Actions smoke test passed at $(date -u)"
