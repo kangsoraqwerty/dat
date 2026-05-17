@@ -1,0 +1,17 @@
+name: Smoke
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Confirm GitHub Actions runner
+        run: echo "GitHub Actions smoke test passed"
